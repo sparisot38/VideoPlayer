@@ -11,6 +11,9 @@
 		C40D08A724EEEA9D0011A44B /* silexvideo.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = C40D08A624EEEA9C0011A44B /* silexvideo.mp4 */; };
 		C418B4D924EE761D00FEF927 /* FDWaveformView in Frameworks */ = {isa = PBXBuildFile; productRef = C418B4D824EE761D00FEF927 /* FDWaveformView */; };
 		C479653F24F95BC3008089D9 /* WaveformGradient-Left.png in Resources */ = {isa = PBXBuildFile; fileRef = C479653E24F95BC3008089D9 /* WaveformGradient-Left.png */; };
+		C4A1D24F24FAC22C00401DF0 /* AudioScrubberViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4A1D24E24FAC22C00401DF0 /* AudioScrubberViewController.swift */; };
+		C4A1D25124FAC6DF00401DF0 /* PaddingLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4A1D25024FAC6DF00401DF0 /* PaddingLabel.swift */; };
+		C4A1D25324FC671200401DF0 /* UIImageExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4A1D25224FC671200401DF0 /* UIImageExtensions.swift */; };
 		C4E9112224EB36B100319AEB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4E9112124EB36B100319AEB /* AppDelegate.swift */; };
 		C4E9112424EB36B100319AEB /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4E9112324EB36B100319AEB /* SceneDelegate.swift */; };
 		C4E9112624EB36B100319AEB /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4E9112524EB36B100319AEB /* ViewController.swift */; };
@@ -28,6 +31,9 @@
 		C40D089E24EEC0FD0011A44B /* music.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; path = music.m4a; sourceTree = "<group>"; };
 		C40D08A624EEEA9C0011A44B /* silexvideo.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = silexvideo.mp4; sourceTree = "<group>"; };
 		C479653E24F95BC3008089D9 /* WaveformGradient-Left.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "WaveformGradient-Left.png"; sourceTree = "<group>"; };
+		C4A1D24E24FAC22C00401DF0 /* AudioScrubberViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioScrubberViewController.swift; sourceTree = "<group>"; };
+		C4A1D25024FAC6DF00401DF0 /* PaddingLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaddingLabel.swift; sourceTree = "<group>"; };
+		C4A1D25224FC671200401DF0 /* UIImageExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIImageExtensions.swift; sourceTree = "<group>"; };
 		C4E9111E24EB36B000319AEB /* VideoPlayer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = VideoPlayer.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C4E9112124EB36B100319AEB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C4E9112324EB36B100319AEB /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -107,8 +113,11 @@
 				C4E9112324EB36B100319AEB /* SceneDelegate.swift */,
 				C4E9112524EB36B100319AEB /* ViewController.swift */,
 				C4E9112724EB36B100319AEB /* Main.storyboard */,
+				C4A1D25024FAC6DF00401DF0 /* PaddingLabel.swift */,
 				C4E9112C24EB36B200319AEB /* LaunchScreen.storyboard */,
 				C4E9112F24EB36B200319AEB /* Info.plist */,
+				C4A1D24E24FAC22C00401DF0 /* AudioScrubberViewController.swift */,
+				C4A1D25224FC671200401DF0 /* UIImageExtensions.swift */,
 			);
 			path = VideoPlayer;
 			sourceTree = "<group>";
@@ -221,8 +230,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				C4E9112624EB36B100319AEB /* ViewController.swift in Sources */,
+				C4A1D25124FAC6DF00401DF0 /* PaddingLabel.swift in Sources */,
 				C4E9112224EB36B100319AEB /* AppDelegate.swift in Sources */,
+				C4A1D25324FC671200401DF0 /* UIImageExtensions.swift in Sources */,
 				C4E9112424EB36B100319AEB /* SceneDelegate.swift in Sources */,
+				C4A1D24F24FAC22C00401DF0 /* AudioScrubberViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

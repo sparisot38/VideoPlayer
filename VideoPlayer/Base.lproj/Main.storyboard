@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13122.16" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16097.2" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13104.12"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -9,16 +10,71 @@
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModuleProvider="target" sceneMemberID="viewController">
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="VideoPlayer" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" xcode11CocoaTouchSystemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="40" translatesAutoresizingMaskIntoConstraints="NO" id="5Um-j4-xel">
+                                <rect key="frame" x="0.0" y="84" width="414" height="363.5"/>
+                                <subviews>
+                                    <view contentMode="center" translatesAutoresizingMaskIntoConstraints="NO" id="ys6-75-at8">
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="233"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" secondItem="ys6-75-at8" secondAttribute="height" multiplier="16:9" id="Y9V-rG-8TK"/>
+                                        </constraints>
+                                    </view>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0.0" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VvC-zZ-Dtf">
+                                        <rect key="frame" x="195" y="273" width="24" height="20.5"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QWT-qX-zBq" userLabel="Play Button">
+                                        <rect key="frame" x="192" y="333.5" width="30" height="30"/>
+                                        <state key="normal" title="Play"/>
+                                        <connections>
+                                            <action selector="playButtonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="zBd-eD-noj"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="QWT-qX-zBq" firstAttribute="centerX" secondItem="5Um-j4-xel" secondAttribute="centerX" id="46l-F7-4Tc"/>
+                                    <constraint firstItem="VvC-zZ-Dtf" firstAttribute="centerX" secondItem="5Um-j4-xel" secondAttribute="centerX" id="WhH-rg-Dg3"/>
+                                    <constraint firstAttribute="trailing" secondItem="ys6-75-at8" secondAttribute="trailing" id="daJ-S6-hHi"/>
+                                    <constraint firstItem="ys6-75-at8" firstAttribute="top" secondItem="5Um-j4-xel" secondAttribute="top" id="mac-U0-ETF"/>
+                                    <constraint firstItem="ys6-75-at8" firstAttribute="leading" secondItem="5Um-j4-xel" secondAttribute="leading" id="y7g-28-lyA"/>
+                                </constraints>
+                            </stackView>
+                            <slider opaque="NO" contentMode="center" layoutMarginsFollowReadableWidth="YES" insetsLayoutMarginsFromSafeArea="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="CzI-OS-mTp">
+                                <rect key="frame" x="38" y="477.5" width="338" height="31"/>
+                                <connections>
+                                    <action selector="sliderAction:" destination="BYZ-38-t0r" eventType="valueChanged" id="sTR-4v-NAn"/>
+                                </connections>
+                            </slider>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="CzI-OS-mTp" secondAttribute="trailing" constant="40" id="1Zq-O2-fp6"/>
+                            <constraint firstItem="CzI-OS-mTp" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="40" id="5gZ-Py-NTT"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="CzI-OS-mTp" secondAttribute="trailing" constant="40" id="BoE-sq-LFK"/>
+                            <constraint firstItem="CzI-OS-mTp" firstAttribute="top" secondItem="5Um-j4-xel" secondAttribute="bottom" constant="30" id="JGq-fg-9W2"/>
+                            <constraint firstItem="5Um-j4-xel" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="LyG-uK-Gng"/>
+                            <constraint firstItem="5Um-j4-xel" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="40" id="ipw-S4-AEJ"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="5Um-j4-xel" secondAttribute="trailing" id="kfM-k7-kLR"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
+                    <connections>
+                        <outlet property="label" destination="VvC-zZ-Dtf" id="On1-sa-Cp6"/>
+                        <outlet property="playButton" destination="QWT-qX-zBq" id="5i2-1p-GFz"/>
+                        <outlet property="slider" destination="CzI-OS-mTp" id="svp-LE-2cb"/>
+                        <outlet property="videoView" destination="ys6-75-at8" id="640-qE-Kow"/>
+                    </connections>
                 </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="137.68115942028987" y="137.94642857142856"/>
         </scene>
     </scenes>
 </document>

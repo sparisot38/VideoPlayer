@@ -3,19 +3,31 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 52;
 	objects = {
 
 /* Begin PBXBuildFile section */
+		C40D089F24EEC0FD0011A44B /* music.m4a in Resources */ = {isa = PBXBuildFile; fileRef = C40D089E24EEC0FD0011A44B /* music.m4a */; };
+		C40D08A724EEEA9D0011A44B /* silexvideo.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = C40D08A624EEEA9C0011A44B /* silexvideo.mp4 */; };
+		C418B4D924EE761D00FEF927 /* FDWaveformView in Frameworks */ = {isa = PBXBuildFile; productRef = C418B4D824EE761D00FEF927 /* FDWaveformView */; };
+		C479653F24F95BC3008089D9 /* WaveformGradient-Left.png in Resources */ = {isa = PBXBuildFile; fileRef = C479653E24F95BC3008089D9 /* WaveformGradient-Left.png */; };
 		C4E9112224EB36B100319AEB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4E9112124EB36B100319AEB /* AppDelegate.swift */; };
 		C4E9112424EB36B100319AEB /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4E9112324EB36B100319AEB /* SceneDelegate.swift */; };
 		C4E9112624EB36B100319AEB /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4E9112524EB36B100319AEB /* ViewController.swift */; };
 		C4E9112924EB36B100319AEB /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C4E9112724EB36B100319AEB /* Main.storyboard */; };
 		C4E9112B24EB36B200319AEB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C4E9112A24EB36B200319AEB /* Assets.xcassets */; };
 		C4E9112E24EB36B200319AEB /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C4E9112C24EB36B200319AEB /* LaunchScreen.storyboard */; };
+		C4E9113624EB36FF00319AEB /* SampleVideo.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = C4E9113524EB36FF00319AEB /* SampleVideo.mp4 */; };
+		F0F915B8C9A814A6D6259818 /* Pods_VideoPlayer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BA9A7A851AE12F461E48B5B0 /* Pods_VideoPlayer.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		30CBB7E27E9AEACCFCF8C882 /* Pods-VideoPlayer.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-VideoPlayer.release.xcconfig"; path = "Target Support Files/Pods-VideoPlayer/Pods-VideoPlayer.release.xcconfig"; sourceTree = "<group>"; };
+		ABC69D5368566FE4F3868EAE /* Pods-VideoPlayer.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-VideoPlayer.debug.xcconfig"; path = "Target Support Files/Pods-VideoPlayer/Pods-VideoPlayer.debug.xcconfig"; sourceTree = "<group>"; };
+		BA9A7A851AE12F461E48B5B0 /* Pods_VideoPlayer.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_VideoPlayer.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		C40D089E24EEC0FD0011A44B /* music.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; path = music.m4a; sourceTree = "<group>"; };
+		C40D08A624EEEA9C0011A44B /* silexvideo.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = silexvideo.mp4; sourceTree = "<group>"; };
+		C479653E24F95BC3008089D9 /* WaveformGradient-Left.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "WaveformGradient-Left.png"; sourceTree = "<group>"; };
 		C4E9111E24EB36B000319AEB /* VideoPlayer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = VideoPlayer.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C4E9112124EB36B100319AEB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C4E9112324EB36B100319AEB /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -24,6 +36,7 @@
 		C4E9112A24EB36B200319AEB /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		C4E9112D24EB36B200319AEB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		C4E9112F24EB36B200319AEB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		C4E9113524EB36FF00319AEB /* SampleVideo.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = SampleVideo.mp4; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -31,17 +44,50 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C418B4D924EE761D00FEF927 /* FDWaveformView in Frameworks */,
+				F0F915B8C9A814A6D6259818 /* Pods_VideoPlayer.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		1C8D5C939178BDB5CA95BECC /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				ABC69D5368566FE4F3868EAE /* Pods-VideoPlayer.debug.xcconfig */,
+				30CBB7E27E9AEACCFCF8C882 /* Pods-VideoPlayer.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
+		61EE8F0A0B88885AA36E81E0 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				BA9A7A851AE12F461E48B5B0 /* Pods_VideoPlayer.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		C4CC8F7124F79F090057DAEE /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				C40D089E24EEC0FD0011A44B /* music.m4a */,
+				C4E9113524EB36FF00319AEB /* SampleVideo.mp4 */,
+				C40D08A624EEEA9C0011A44B /* silexvideo.mp4 */,
+				C4E9112A24EB36B200319AEB /* Assets.xcassets */,
+				C479653E24F95BC3008089D9 /* WaveformGradient-Left.png */,
+			);
+			path = "Supporting Files";
+			sourceTree = "<group>";
+		};
 		C4E9111524EB36B000319AEB = {
 			isa = PBXGroup;
 			children = (
 				C4E9112024EB36B100319AEB /* VideoPlayer */,
 				C4E9111F24EB36B000319AEB /* Products */,
+				1C8D5C939178BDB5CA95BECC /* Pods */,
+				61EE8F0A0B88885AA36E81E0 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -56,11 +102,11 @@
 		C4E9112024EB36B100319AEB /* VideoPlayer */ = {
 			isa = PBXGroup;
 			children = (
+				C4CC8F7124F79F090057DAEE /* Supporting Files */,
 				C4E9112124EB36B100319AEB /* AppDelegate.swift */,
 				C4E9112324EB36B100319AEB /* SceneDelegate.swift */,
 				C4E9112524EB36B100319AEB /* ViewController.swift */,
 				C4E9112724EB36B100319AEB /* Main.storyboard */,
-				C4E9112A24EB36B200319AEB /* Assets.xcassets */,
 				C4E9112C24EB36B200319AEB /* LaunchScreen.storyboard */,
 				C4E9112F24EB36B200319AEB /* Info.plist */,
 			);
@@ -74,6 +120,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = C4E9113224EB36B200319AEB /* Build configuration list for PBXNativeTarget "VideoPlayer" */;
 			buildPhases = (
+				032EA6F929065AACE942B03C /* [CP] Check Pods Manifest.lock */,
 				C4E9111A24EB36B000319AEB /* Sources */,
 				C4E9111B24EB36B000319AEB /* Frameworks */,
 				C4E9111C24EB36B000319AEB /* Resources */,
@@ -83,6 +130,9 @@
 			dependencies = (
 			);
 			name = VideoPlayer;
+			packageProductDependencies = (
+				C418B4D824EE761D00FEF927 /* FDWaveformView */,
+			);
 			productName = VideoPlayer;
 			productReference = C4E9111E24EB36B000319AEB /* VideoPlayer.app */;
 			productType = "com.apple.product-type.application";
@@ -111,6 +161,9 @@
 				Base,
 			);
 			mainGroup = C4E9111524EB36B000319AEB;
+			packageReferences = (
+				C418B4D724EE761D00FEF927 /* XCRemoteSwiftPackageReference "FDWaveformView" */,
+			);
 			productRefGroup = C4E9111F24EB36B000319AEB /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -126,12 +179,41 @@
 			buildActionMask = 2147483647;
 			files = (
 				C4E9112E24EB36B200319AEB /* LaunchScreen.storyboard in Resources */,
+				C40D08A724EEEA9D0011A44B /* silexvideo.mp4 in Resources */,
 				C4E9112B24EB36B200319AEB /* Assets.xcassets in Resources */,
 				C4E9112924EB36B100319AEB /* Main.storyboard in Resources */,
+				C4E9113624EB36FF00319AEB /* SampleVideo.mp4 in Resources */,
+				C479653F24F95BC3008089D9 /* WaveformGradient-Left.png in Resources */,
+				C40D089F24EEC0FD0011A44B /* music.m4a in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		032EA6F929065AACE942B03C /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-VideoPlayer-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		C4E9111A24EB36B000319AEB /* Sources */ = {
@@ -282,6 +364,7 @@
 		};
 		C4E9113324EB36B200319AEB /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = ABC69D5368566FE4F3868EAE /* Pods-VideoPlayer.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -300,6 +383,7 @@
 		};
 		C4E9113424EB36B200319AEB /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 30CBB7E27E9AEACCFCF8C882 /* Pods-VideoPlayer.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -338,6 +422,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		C418B4D724EE761D00FEF927 /* XCRemoteSwiftPackageReference "FDWaveformView" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/fulldecent/FDWaveformView.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.0.1;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		C418B4D824EE761D00FEF927 /* FDWaveformView */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = C418B4D724EE761D00FEF927 /* XCRemoteSwiftPackageReference "FDWaveformView" */;
+			productName = FDWaveformView;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = C4E9111624EB36B000319AEB /* Project object */;
 }

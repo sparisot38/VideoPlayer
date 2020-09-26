@@ -3,17 +3,23 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 52;
+	objectVersion = 50;
 	objects = {
 
 /* Begin PBXBuildFile section */
 		C40D089F24EEC0FD0011A44B /* music.m4a in Resources */ = {isa = PBXBuildFile; fileRef = C40D089E24EEC0FD0011A44B /* music.m4a */; };
 		C40D08A724EEEA9D0011A44B /* silexvideo.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = C40D08A624EEEA9C0011A44B /* silexvideo.mp4 */; };
-		C418B4D924EE761D00FEF927 /* FDWaveformView in Frameworks */ = {isa = PBXBuildFile; productRef = C418B4D824EE761D00FEF927 /* FDWaveformView */; };
+		C44BEE3725077E9900E09AB2 /* FileLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = C44BEE3625077E9900E09AB2 /* FileLoader.swift */; };
+		C44BEE3925077ED200E09AB2 /* FileLoaderDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C44BEE3825077ED200E09AB2 /* FileLoaderDelegate.swift */; };
+		C44BEE3B2508E96A00E09AB2 /* ScrubberDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C44BEE3A2508E96A00E09AB2 /* ScrubberDelegate.swift */; };
+		C44BEE3D250AD7FD00E09AB2 /* essai.m4a in Resources */ = {isa = PBXBuildFile; fileRef = C44BEE3C250AD7FD00E09AB2 /* essai.m4a */; };
+		C44BEE41250F677800E09AB2 /* Constantes.swift in Sources */ = {isa = PBXBuildFile; fileRef = C44BEE40250F677800E09AB2 /* Constantes.swift */; };
 		C479653F24F95BC3008089D9 /* WaveformGradient-Left.png in Resources */ = {isa = PBXBuildFile; fileRef = C479653E24F95BC3008089D9 /* WaveformGradient-Left.png */; };
 		C4A1D24F24FAC22C00401DF0 /* AudioScrubberViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4A1D24E24FAC22C00401DF0 /* AudioScrubberViewController.swift */; };
 		C4A1D25124FAC6DF00401DF0 /* PaddingLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4A1D25024FAC6DF00401DF0 /* PaddingLabel.swift */; };
 		C4A1D25324FC671200401DF0 /* UIImageExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4A1D25224FC671200401DF0 /* UIImageExtensions.swift */; };
+		C4A1D25524FD810400401DF0 /* AudioContext.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4A1D25424FD810300401DF0 /* AudioContext.swift */; };
+		C4E5B0EC25195CA300425D1A /* ImageViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4E5B0EB25195CA300425D1A /* ImageViewDelegate.swift */; };
 		C4E9112224EB36B100319AEB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4E9112124EB36B100319AEB /* AppDelegate.swift */; };
 		C4E9112424EB36B100319AEB /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4E9112324EB36B100319AEB /* SceneDelegate.swift */; };
 		C4E9112624EB36B100319AEB /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4E9112524EB36B100319AEB /* ViewController.swift */; };
@@ -30,10 +36,17 @@
 		BA9A7A851AE12F461E48B5B0 /* Pods_VideoPlayer.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_VideoPlayer.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C40D089E24EEC0FD0011A44B /* music.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; path = music.m4a; sourceTree = "<group>"; };
 		C40D08A624EEEA9C0011A44B /* silexvideo.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = silexvideo.mp4; sourceTree = "<group>"; };
+		C44BEE3625077E9900E09AB2 /* FileLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileLoader.swift; sourceTree = "<group>"; };
+		C44BEE3825077ED200E09AB2 /* FileLoaderDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileLoaderDelegate.swift; sourceTree = "<group>"; };
+		C44BEE3A2508E96A00E09AB2 /* ScrubberDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScrubberDelegate.swift; sourceTree = "<group>"; };
+		C44BEE3C250AD7FD00E09AB2 /* essai.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; path = essai.m4a; sourceTree = "<group>"; };
+		C44BEE40250F677800E09AB2 /* Constantes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constantes.swift; sourceTree = "<group>"; };
 		C479653E24F95BC3008089D9 /* WaveformGradient-Left.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "WaveformGradient-Left.png"; sourceTree = "<group>"; };
 		C4A1D24E24FAC22C00401DF0 /* AudioScrubberViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioScrubberViewController.swift; sourceTree = "<group>"; };
 		C4A1D25024FAC6DF00401DF0 /* PaddingLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaddingLabel.swift; sourceTree = "<group>"; };
 		C4A1D25224FC671200401DF0 /* UIImageExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIImageExtensions.swift; sourceTree = "<group>"; };
+		C4A1D25424FD810300401DF0 /* AudioContext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioContext.swift; sourceTree = "<group>"; };
+		C4E5B0EB25195CA300425D1A /* ImageViewDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageViewDelegate.swift; sourceTree = "<group>"; };
 		C4E9111E24EB36B000319AEB /* VideoPlayer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = VideoPlayer.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C4E9112124EB36B100319AEB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C4E9112324EB36B100319AEB /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -50,7 +63,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C418B4D924EE761D00FEF927 /* FDWaveformView in Frameworks */,
 				F0F915B8C9A814A6D6259818 /* Pods_VideoPlayer.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -78,6 +90,7 @@
 		C4CC8F7124F79F090057DAEE /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				C44BEE3C250AD7FD00E09AB2 /* essai.m4a */,
 				C40D089E24EEC0FD0011A44B /* music.m4a */,
 				C4E9113524EB36FF00319AEB /* SampleVideo.mp4 */,
 				C40D08A624EEEA9C0011A44B /* silexvideo.mp4 */,
@@ -108,16 +121,22 @@
 		C4E9112024EB36B100319AEB /* VideoPlayer */ = {
 			isa = PBXGroup;
 			children = (
-				C4CC8F7124F79F090057DAEE /* Supporting Files */,
+				C44BEE40250F677800E09AB2 /* Constantes.swift */,
+				C44BEE3825077ED200E09AB2 /* FileLoaderDelegate.swift */,
+				C4E5B0EB25195CA300425D1A /* ImageViewDelegate.swift */,
+				C44BEE3A2508E96A00E09AB2 /* ScrubberDelegate.swift */,
+				C44BEE3625077E9900E09AB2 /* FileLoader.swift */,
 				C4E9112124EB36B100319AEB /* AppDelegate.swift */,
 				C4E9112324EB36B100319AEB /* SceneDelegate.swift */,
 				C4E9112524EB36B100319AEB /* ViewController.swift */,
-				C4E9112724EB36B100319AEB /* Main.storyboard */,
 				C4A1D25024FAC6DF00401DF0 /* PaddingLabel.swift */,
 				C4E9112C24EB36B200319AEB /* LaunchScreen.storyboard */,
 				C4E9112F24EB36B200319AEB /* Info.plist */,
 				C4A1D24E24FAC22C00401DF0 /* AudioScrubberViewController.swift */,
+				C4A1D25424FD810300401DF0 /* AudioContext.swift */,
 				C4A1D25224FC671200401DF0 /* UIImageExtensions.swift */,
+				C4E9112724EB36B100319AEB /* Main.storyboard */,
+				C4CC8F7124F79F090057DAEE /* Supporting Files */,
 			);
 			path = VideoPlayer;
 			sourceTree = "<group>";
@@ -140,7 +159,6 @@
 			);
 			name = VideoPlayer;
 			packageProductDependencies = (
-				C418B4D824EE761D00FEF927 /* FDWaveformView */,
 			);
 			productName = VideoPlayer;
 			productReference = C4E9111E24EB36B000319AEB /* VideoPlayer.app */;
@@ -153,7 +171,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 1150;
-				LastUpgradeCheck = 1150;
+				LastUpgradeCheck = 1200;
 				ORGANIZATIONNAME = "Stéphane Parisot";
 				TargetAttributes = {
 					C4E9111D24EB36B000319AEB = {
@@ -171,7 +189,6 @@
 			);
 			mainGroup = C4E9111524EB36B000319AEB;
 			packageReferences = (
-				C418B4D724EE761D00FEF927 /* XCRemoteSwiftPackageReference "FDWaveformView" */,
 			);
 			productRefGroup = C4E9111F24EB36B000319AEB /* Products */;
 			projectDirPath = "";
@@ -193,6 +210,7 @@
 				C4E9112924EB36B100319AEB /* Main.storyboard in Resources */,
 				C4E9113624EB36FF00319AEB /* SampleVideo.mp4 in Resources */,
 				C479653F24F95BC3008089D9 /* WaveformGradient-Left.png in Resources */,
+				C44BEE3D250AD7FD00E09AB2 /* essai.m4a in Resources */,
 				C40D089F24EEC0FD0011A44B /* music.m4a in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -229,10 +247,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C44BEE3925077ED200E09AB2 /* FileLoaderDelegate.swift in Sources */,
 				C4E9112624EB36B100319AEB /* ViewController.swift in Sources */,
 				C4A1D25124FAC6DF00401DF0 /* PaddingLabel.swift in Sources */,
+				C44BEE3725077E9900E09AB2 /* FileLoader.swift in Sources */,
+				C4E5B0EC25195CA300425D1A /* ImageViewDelegate.swift in Sources */,
+				C44BEE3B2508E96A00E09AB2 /* ScrubberDelegate.swift in Sources */,
+				C44BEE41250F677800E09AB2 /* Constantes.swift in Sources */,
 				C4E9112224EB36B100319AEB /* AppDelegate.swift in Sources */,
 				C4A1D25324FC671200401DF0 /* UIImageExtensions.swift in Sources */,
+				C4A1D25524FD810400401DF0 /* AudioContext.swift in Sources */,
 				C4E9112424EB36B100319AEB /* SceneDelegate.swift in Sources */,
 				C4A1D24F24FAC22C00401DF0 /* AudioScrubberViewController.swift in Sources */,
 			);
@@ -286,6 +310,7 @@
 				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
 				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
@@ -346,6 +371,7 @@
 				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
 				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
@@ -434,25 +460,6 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
-
-/* Begin XCRemoteSwiftPackageReference section */
-		C418B4D724EE761D00FEF927 /* XCRemoteSwiftPackageReference "FDWaveformView" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/fulldecent/FDWaveformView.git";
-			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 5.0.1;
-			};
-		};
-/* End XCRemoteSwiftPackageReference section */
-
-/* Begin XCSwiftPackageProductDependency section */
-		C418B4D824EE761D00FEF927 /* FDWaveformView */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = C418B4D724EE761D00FEF927 /* XCRemoteSwiftPackageReference "FDWaveformView" */;
-			productName = FDWaveformView;
-		};
-/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = C4E9111624EB36B000319AEB /* Project object */;
 }

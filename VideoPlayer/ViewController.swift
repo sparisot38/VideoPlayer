@@ -4,7 +4,6 @@
 //
 //  Created by sparisot on 18/08/2020.
 //  Copyright © 2020 Stéphane Parisot. All rights reserved.
-// test
 
 
 import UIKit
@@ -12,254 +11,231 @@ import AVKit
 import AVFoundation
 
 
-
-// animation configuration
-let animationDuration       = 0.25
-let scaleFactor             = CGFloat(1.4)
-
-//import FDWaveformView
-
-
-class ViewController: UIViewController, UIScrollViewDelegate, ScrubberDelegate {
-
-    @IBOutlet weak var slider: UISlider!
-    @IBOutlet weak var label: UILabel!
+class ViewController: UIViewController {
+    
     @IBOutlet weak var videoView: UIView!
-    @IBOutlet weak var playButton: UIButton!
-
-    @IBOutlet weak var coverArtScrollView: UIScrollView!
-    @IBOutlet weak var coverArtImageView: UIImageView!
-    @IBOutlet weak var timeLabel: PaddingLabel!
+    @IBOutlet weak var timeSlider: UISlider!
+    @IBOutlet weak var currentTimeLabel: UILabel!
+    @IBOutlet weak var durationLabel: UILabel!
+    @IBOutlet weak var buttonPlay: UIButton!
+    @IBOutlet weak var fullWaveformImageView: UIImageView!
+    @IBOutlet weak var tapView: UIView!
+    @IBOutlet weak var containerView: UIView!
     
     
-    
+    /* Player Video */
+    var asset : AVAsset!
+    var player: AVPlayer!
+    var playerItem: AVPlayerItem!
     var playerLayer = AVPlayerLayer()
-    var player: AVPlayer? {
-        return playerLayer.player
-    }
-    
-    let url = Bundle.main.url(forResource: "silexvideo", withExtension: "mp4")!
-    var rate : Float = 1
-    var isPlaying: Bool {
-                   return player?.rate != 0 && player?.error == nil
-               }
+    var isVideoPlaying = false
+    private var playerItemContext = 0
+    let requiredAssetKeys = [
+        "playable",
+        "hasProtectedContent"
+    ]
+    var rate : Float = 1 /* Video Speed by default =1 */
 
     
-    
-    
-    var blurEffectView: UIVisualEffectView?
-    
-    // UI respond's when the user is scrolling the waveform by
-    // animating the time label and blurring the background
-    var active: Bool = false {
-        didSet {
-            if active {
-                // set UI to active
-                UIView.animate(withDuration: animationDuration, delay: 0.0, usingSpringWithDamping: 0.4, initialSpringVelocity: 0.2, options: .curveEaseIn, animations: {
-                    self.blurEffectView?.alpha = 1.0
-                    let yTransform = CGAffineTransform(translationX: 0.0, y: -100.0)
-                    let scaleTransform = CGAffineTransform(scaleX: scaleFactor, y: scaleFactor)
-                    self.timeLabel.transform = yTransform.concatenating(scaleTransform)
-                    self.timeLabel.backgroundColor = UIColor.clear
-                    self.view.layoutIfNeeded()
-                }, completion: nil)
-            }else {
-                // set UI to inactive
-                UIView.animate(withDuration: animationDuration, delay: 0.0, usingSpringWithDamping: 1.0, initialSpringVelocity: 1.0, options: .curveLinear, animations: {
-                    self.blurEffectView?.alpha = 0.0
-                    let yTransform = CGAffineTransform(translationX: 0.0, y: 0.0)
-                    let scaleTransform = CGAffineTransform(scaleX: 1.0, y: 1.0)
-                    self.timeLabel.transform = yTransform.concatenating(scaleTransform)
-                    self.timeLabel.backgroundColor = UIColor.black
-                    self.view.layoutIfNeeded()
-                }, completion: nil)
-            }
-        }
-    }
-    
+    /* Waveform settings */
+    var waveformView: UIImageView!
+    var newImage: UIImage! /* image waveform full size*/
 
     
-
+// UI respond's when the user is scrolling the waveform by
+// animating the time label and blurring the background
+//    let animationDuration       = 0.25
+//    var active: Bool = false {
+//        didSet {
+//            if active {
+//                // set UI to active
+//                UIView.animate(withDuration: animationDuration, delay: 0.0, usingSpringWithDamping: 0.4, initialSpringVelocity: 0.2, options: .curveEaseIn, animations: {
+//                    self.view.layoutIfNeeded()
+//                }, completion: nil)
+//            }else {
+//                // set UI to inactive
+//                UIView.animate(withDuration: animationDuration, delay: 0.0, usingSpringWithDamping: 1.0, initialSpringVelocity: 1.0, options: .curveLinear, animations: {
+//                    self.view.layoutIfNeeded()
+//                }, completion: nil)
+//            }
+//        }
+//    }
+    
+    
+        
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
+        
+        // Définition de la zone permettant d'activer le TapGestureRecognizer pour déclancher ou arrêter la vidéo.
+        // ATTENTION Les valeurs de CGREC doivent être calculées dynamiquement en fonction de la taille de l'iphone,ipad
+        //       let tapView = UIView(frame: CGRect(x: 0, y: 108, width: 414, height: 483))
+        //tapView.backgroundColor = .red
+        view.addSubview(tapView)
+        
+        // Area for tapping = tapView and containerView. Obligé de procéder ainsi car sinon le scroll est désactivé sur container view
+        let tap = UITapGestureRecognizer(target: self, action: #selector(handleTap(sender:)))
+        tapView.addGestureRecognizer(tap)
+        let tap2 = UITapGestureRecognizer(target: self, action: #selector(handleTap(sender:)))
+        containerView.addGestureRecognizer(tap2)
         setUpPlayerLayer()
-        videoView.layer.addSublayer(playerLayer)
-
-        NotificationCenter.default.addObserver(
-            self,
-            selector: #selector(ViewController.playerDidReachEndNotificationHandler(_:)),
-            name: NSNotification.Name(rawValue: "AVPlayerItemDidPlayToEndTimeNotification"),
-            object: player?.currentItem)
-        playButton.setTitle("Pause", for: .normal)
-
-        sliderUpdate()
-            
-//        waveDrawing()
-         setupBlurView()
-
-        
-//AudioKit Pod
-//        let file = try! AKAudioFile(readFileName: "silexvideo.mp4", baseDir: .resources)
-//        let fileTable = AKTable(file: file)
-
-        
-        
-     
         
     }
+    
 
-  
-//    override func viewDidAppear(_ animated: Bool) {
-//        super.viewDidAppear(animated)
-//
-//       // partie sélectionnée.
-//        UIView.animate(withDuration: 0.3, animations: {
-//            let random = Int.random(in: 0..<self.waveform.totalSamples)
-//                self.waveform.highlightedSamples = 0 ..< random
-//
-//        })
-                
-//    }
-  
-    // MARK: - Blur view
-    private func setupBlurView() {
-        if self.blurEffectView == nil{
-            let blurEffect = UIBlurEffect(style: .dark)
-            self.blurEffectView = UIVisualEffectView(effect: blurEffect)
-            self.blurEffectView!.frame = self.view.bounds
-            self.blurEffectView!.autoresizingMask = [.flexibleWidth, .flexibleHeight]
-            view.insertSubview(self.blurEffectView!, aboveSubview: self.coverArtScrollView)
+    
+    @objc func handleTap(sender: UITapGestureRecognizer) {
+        guard sender.view != nil else {return}
+        if sender.state == .ended {
+            changeStatusVideoPlay()
         }
-        self.blurEffectView?.alpha = 0.0
+        
     }
     
-    // MARK: - Scrubber Delegate
-    // Move the cover art scrollview when the waveform scrollview moves
-    func progressUpdatedTo(progress: CGFloat) {
-        let newX = (coverArtScrollView.contentSize.width - coverArtScrollView.frame.size.width) * progress
-        let coverArtOffset = CGPoint(x: newX, y: 0.0)
-        coverArtScrollView.contentOffset = coverArtOffset
-    }
     
+    func displayWaveformAfterLoading(){
+        fullWaveformImageView.contentMode = .scaleToFill
+        fullWaveformImageView.image = newImage
+        self.view.addSubview(fullWaveformImageView)
+        
+    }
 
+ 
 }
 
-//MARK: - Layer setup
+ 
+    
+// MARK: - Scrubber Delegate
+// Get progressupdate from AudioScrubberViewController to sync TimeSlider and Player
+extension ViewController : ScrubberDelegate {
+    
+    func progressUpdatedTo(progress: CGFloat) {
+        
+        let asset = AVAsset(url: url)
+        let duration = asset.duration
+        let durationTime = CMTimeGetSeconds(duration)
+        let timeValue = durationTime * Double(progress)
+        timeSlider.value = Float(timeValue)
+        let timeValueCMT = CMTimeMake(value: Int64(timeValue)*1000, timescale: 1000)
+        player.seek(to: timeValueCMT)
+        currentTimeLabel.text = getTimeString(from: timeValueCMT)
+    }
+    
+}
+    
+
+//MARK: - VideoPlayer setup
 extension ViewController {
+ 
     func setUpPlayerLayer() {
         
-        //1
+        //1. Create the asset to play
+        asset = AVAsset(url: url)
+        
+        //2. playerItem set-up
+        playerItem = AVPlayerItem(asset: asset, automaticallyLoadedAssetKeys: requiredAssetKeys)
+        
+        //3. Load Player
+        player = AVPlayer(url: url)
+        
+        //4. Set-Up playerLayer
+        playerLayer = AVPlayerLayer(player: player)
+        videoView.layer.addSublayer(playerLayer)
+        
+        //5. Set-up Frame
         playerLayer.frame = self.videoView.bounds
-
-        //2
-        let item = AVPlayerItem(asset: AVAsset(url: url))
-        let player = AVPlayer(playerItem: item)
-
-        //3
-        player.actionAtItemEnd = .none
-
-        //4
-        player.volume = 1.0
-        player.rate = 1.0
         
-        playerLayer.player = player
+        //6. Add observer
+        addTimeObserver()
         
-        }
+        // Update labels and sliders
+        durationLabel.text = self.getTimeString(from: asset.duration)
+        timeSlider.maximumValue = Float(asset.duration.seconds)
+        timeSlider.minimumValue = 0.0
+        
+        
+    }
+    
+
+    func addTimeObserver() {
+        
+        let interval = CMTime(seconds: 0.5, preferredTimescale: CMTimeScale(NSEC_PER_SEC))
+        let mainQueue = DispatchQueue.main
+        _ = player.addPeriodicTimeObserver(forInterval: interval, queue: mainQueue, using: { [weak self] time in
+            guard let currentItem = self?.player.currentItem else {return}
+            
+            self?.timeSlider.value = Float(currentItem.currentTime().seconds)
+            self?.currentTimeLabel.text = self?.getTimeString(from: currentItem.currentTime())
+            
+            let progressVideoPercent = Float(currentItem.currentTime().seconds / currentItem.duration.seconds)
+            NotificationCenter.default.post(name: AudioScrubberController.passingVideoCurrentTime, object: nil, userInfo: ["currentTime": progressVideoPercent])
+            
+        })
+    }
+
 }
 
 // MARK: - IBActions
 extension ViewController {
-  @IBAction func playButtonTapped(_ sender: Any) {
-    if player?.rate == 0 {
-      player?.rate = rate
-      updatePlayButtonTitle(isPlaying: true)
-    } else {
-      player?.pause()
-      updatePlayButtonTitle(isPlaying: false)
+    
+    @IBAction func playPressed(_ sender: UIButton) {
+        changeStatusVideoPlay()
     }
-  }
     
-
-    
-   @IBAction func sliderAction(_ sender: Any) {
-        player?.seek(to: CMTime(seconds: Double(slider.value), preferredTimescale: 1000))
-        self.label.text = String(format:"%.0f",slider.value)
-
-    }
-
-}
-
-// MARK: - Triggered actions
-extension ViewController {
-  @objc func playerDidReachEndNotificationHandler(_ notification: Notification) {
-    // 1
-    guard let playerItem = notification.object as? AVPlayerItem else { return }
-
-    // 2
-    playerItem.seek(to: .zero, completionHandler: nil)
-
-    // 3
-    if player?.actionAtItemEnd == .pause {
-      player?.pause()
-     updatePlayButtonTitle(isPlaying: false)
-    }
-  }
-    
-    
-    func sliderUpdate() {
-        // Paramétrage du Slider
-        slider.maximumValue = Float(player?.currentItem?.asset.duration.seconds ?? 0)
+    func changeStatusVideoPlay(){
+        if isVideoPlaying {
+            player.pause()
+            buttonPlay.setTitle("Play", for: .normal)
+        }else {
+            player.play()
+            buttonPlay.setTitle("Pause", for: .normal)
+        }
         
+        isVideoPlaying = !isVideoPlaying
         
-        player?.addPeriodicTimeObserver(forInterval: CMTime(seconds: 1, preferredTimescale: 1000), queue: DispatchQueue.main, using: { (time) in
-            self.label.text = String(format:"%.0f",time.seconds)
-            self.slider.value = Float(time.seconds)
-        })
     }
     
-//    func waveDrawing() {
-//        // WaveForm
-//
-//                // Animate the waveform view when it is rendered
-//     //           waveform.delegate = self
-//                waveform.alpha = 1.0
-//                waveform.audioURL = url
-//                waveform.zoomSamples = 0 ..< waveform.totalSamples / 10
-//                waveform.doesAllowScrubbing = true
-//                waveform.doesAllowStretch = true
-//                waveform.doesAllowScroll = true
-//                
-//                
-//            
-//                
-//        //        waveform.wavesColor = UIColor.blue
-//        //        waveform.layer.borderWidth = 1
-//        //        waveform.layer.borderColor = UIColor.black.cgColor
-//        //        waveform.layer.cornerRadius = 0
-//        //        waveform.isHidden = false
-//        //        waveform.isUserInteractionEnabled = true
-//        //        waveform.doesAllowScroll = true
-//        //        waveform.progressColor = .green
-//    }
-
-}
-
-// MARK: - Helpers
-extension ViewController {
-  func updatePlayButtonTitle(isPlaying: Bool) {
-    if isPlaying {
-      playButton.setTitle("Pause", for: .normal)
-    } else {
-      playButton.setTitle("Play", for: .normal)
+    
+    @IBAction func sliderValueChanged(_ sender: UISlider) {
+        player.seek(to: CMTimeMake(value: Int64(sender.value*1000), timescale: 1000))
     }
-  }
+    
+    
+    
+    func getTimeString(from time: CMTime) -> String {
+        let totalSeconds = CMTimeGetSeconds(time)
+        
+        let hours = Int(totalSeconds/3600)
+        let minutes = Int(totalSeconds/60) % 60
+        let seconds = Int(totalSeconds.truncatingRemainder(dividingBy: 60))
+        if hours > 0 {
+            return String(format: "%i:%02i:%02i", arguments: [hours,minutes,seconds])
+        }else {
+            return String(format: "%02i:%02i", arguments: [minutes,seconds])
+        }
+    }
+    
+    
 }
 
-
-
-
-
-
+//MARK: - ImageViewDelegate : Get Image from AudioScrubberViewDelegate
+extension ViewController : ImageViewDelegate {
+    
+    //get image from AudioScrubberViewController
+    func update(_ image:UIImage) {
+        newImage = image
+        self.displayWaveformAfterLoading()
+        
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "UIStoryboardSegue" {
+            let secondVC: AudioScrubberController = segue.destination as! AudioScrubberController
+            secondVC.imageDelegate = self
+        }
+        
+    }
+    
+}
 
 
